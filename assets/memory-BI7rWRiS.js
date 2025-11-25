@@ -2,14 +2,14 @@ const n=`---
 title: In-Memory Adapter
 ---
 
-<h1 id="in-memory-adapter-1">In-Memory Adapter</h1>
-<p>The <code>MemoryAdapter</code> is a synchronous adapter that stores data in a JavaScript <code>Map</code>. Data stored in this adapter <strong>does not persist</strong> across page reloads.</p><h2 id="use-cases-2">Use Cases</h2>
+<h1 id="in-memory-adapter">In-Memory Adapter</h1>
+<p>The <code>MemoryAdapter</code> is a synchronous adapter that stores data in a JavaScript <code>Map</code>. Data stored in this adapter <strong>does not persist</strong> across page reloads.</p><h2 id="use-cases">Use Cases</h2>
 <ul>
 <li><strong>Testing</strong>: Use it in unit tests to avoid polluting LocalStorage.</li>
 <li><strong>Server-Side Rendering (SSR)</strong>: Used automatically as a fallback when <code>window</code> is undefined.</li>
 <li><strong>Temporary State</strong>: For state that should be global but cleared on refresh.</li>
 </ul>
-<h2 id="usage-13">Usage</h2>
+<h2 id="usage-5">Usage</h2>
 <p>Import <code>MemoryAdapter</code> from <code>ngx-persist</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal<span class="token punctuation">,</span> MemoryAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -31,5 +31,5 @@ title: In-Memory Adapter
     adapter<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>adapter
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="ssr-fallback-1">SSR Fallback</h2>
+</code></pre><h2 id="ssr-fallback">SSR Fallback</h2>
 <p><code>ngx-persist</code> automatically uses <code>MemoryAdapter</code> when running on the server (SSR). You don&#39;t need to configure this manually; it&#39;s handled by the <code>resolveAdapter</code> function internally.</p><p>However, if you want to explicitly force in-memory storage even in the browser, you can pass it explicitly as shown above.</p>`;export{n as default};

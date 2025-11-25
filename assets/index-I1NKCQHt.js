@@ -2,17 +2,17 @@ const n=`---
 title: NgxPersist Documentation
 ---
 
-<h1 id="ngxpersist-1">NgxPersist</h1>
-<p>Type-safe, signal-based persistent state primitive for Angular (17–21).</p><h2 id="install-1">Install</h2>
+<h1 id="ngxpersist">NgxPersist</h1>
+<p>Type-safe, signal-based persistent state primitive for Angular (17–21).</p><h2 id="install">Install</h2>
 <pre><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> ngx-persist
-</code></pre><h2 id="setup-1">Setup</h2>
+</code></pre><h2 id="setup">Setup</h2>
 <pre><code class="language-ts"><span class="token comment">// app.config.ts</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> provideNgxPersist <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">export</span> <span class="token keyword">const</span> appConfig<span class="token operator">:</span> ApplicationConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
   providers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">provideNgxPersist</span><span class="token punctuation">(</span><span class="token punctuation">{</span> prefix<span class="token operator">:</span> <span class="token string">'myapp'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><h2 id="usage-17">Usage</h2>
+</code></pre><h2 id="usage-8">Usage</h2>
 <pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -43,22 +43,22 @@ title: NgxPersist Documentation
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="live-demo-1">Live Demo</h2>
-<p><app-demo-counter></app-demo-counter></p><h2 id="api-1">API</h2>
-<h3 id="storagesignaloptions-4"><code>storageSignal<T>(options)</code></h3>
-<p>Creates a signal that syncs with storage.</p><h3 id="storagesignal-methods-1"><code>StorageSignal<T></code> methods</h3>
+</code></pre><h2 id="live-demo">Live Demo</h2>
+<p><app-demo-counter></app-demo-counter></p><h2 id="api">API</h2>
+<h3 id="storagesignaloptions-1"><code>storageSignal<T>(options)</code></h3>
+<p>Creates a signal that syncs with storage.</p><h3 id="storagesignal-methods"><code>StorageSignal<T></code> methods</h3>
 <ul>
 <li><code>()</code>: Read value.</li>
-<li><code>set(value)</code>: Update value and storage.</li>
+<li><code>set(value)</code>: Update value and storage. </li>
 <li><code>update(fn)</code>: Update value based on current.</li>
 <li><code>clear()</code>: Reset to initial and remove from storage.</li>
 <li><code>key</code>: The actual namespaced key used.</li>
 </ul>
-<h3 id="providengxpersistconfig-3"><code>provideNgxPersist(config)</code></h3>
+<h3 id="providengxpersistconfig-1"><code>provideNgxPersist(config)</code></h3>
 <p>Configures the library globally.</p><ul>
 <li><code>config.prefix</code>: Optional string to prefix all keys (e.g., <code>app:key</code>).</li>
 </ul>
-<h3 id="storagesignaloptions-5"><code>StorageSignalOptions<T></code></h3>
+<h3 id="storagesignaloptions-2"><code>StorageSignalOptions<T></code></h3>
 <ul>
 <li><code>key</code>: Unique key for storage.</li>
 <li><code>initial</code>: Default value.</li>

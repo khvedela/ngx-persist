@@ -2,8 +2,8 @@ const n=`---
 title: API Reference
 ---
 
-<h1 id="api-reference-1">API Reference</h1>
-<h2 id="storagesignaloptions-3"><code>storageSignal<T>(options)</code></h2>
+<h1 id="api-reference">API Reference</h1>
+<h2 id="storagesignaloptions"><code>storageSignal<T>(options)</code></h2>
 <p>Creates a writable signal that persists its value.</p><p><strong>Options:</strong></p><table>
 <thead>
 <tr>
@@ -50,7 +50,7 @@ title: API Reference
 <li><code>clear()</code>: Resets to the initial value and removes the item from storage.</li>
 <li><code>key</code>: The fully qualified key used (including prefix).</li>
 </ul>
-<h2 id="providengxpersistconfig-2"><code>provideNgxPersist(config)</code></h2>
+<h2 id="providengxpersistconfig"><code>provideNgxPersist(config)</code></h2>
 <p>Configures the library globally.</p><p><strong>Config:</strong></p><table>
 <thead>
 <tr>
@@ -67,7 +67,7 @@ title: API Reference
 <td align="left">Optional string to prefix all keys (e.g., <code>app:</code>).</td>
 </tr>
 </tbody></table>
-<h2 id="storageadapter-interface-2"><code>StorageAdapter</code> Interface</h2>
+<h2 id="storageadapter-interface"><code>StorageAdapter</code> Interface</h2>
 <p>Interface for implementing custom storage adapters.</p><pre><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">StorageAdapter</span> <span class="token punctuation">{</span>
   <span class="token keyword">readonly</span> isAsync<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
 

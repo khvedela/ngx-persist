@@ -2,15 +2,15 @@ const n=`---
 title: Linked Signals
 ---
 
-<h1 id="linked-signals-3">Linked Signals</h1>
-<p>Angular 19 introduced <code>linkedSignal</code>, a powerful primitive for state that depends on another signal (the &quot;source&quot;) but can be overridden by the user. When the source changes, the signal resets to a computed value.</p><p><code>ngx-persist</code> extends this pattern with <code>storageLinkedSignal</code>, which adds persistence to the mix.</p><h2 id="the-problem-2">The Problem</h2>
+<h1 id="linked-signals-1">Linked Signals</h1>
+<p>Angular 19 introduced <code>linkedSignal</code>, a powerful primitive for state that depends on another signal (the &quot;source&quot;) but can be overridden by the user. When the source changes, the signal resets to a computed value.</p><p><code>ngx-persist</code> extends this pattern with <code>storageLinkedSignal</code>, which adds persistence to the mix.</p><h2 id="the-problem">The Problem</h2>
 <p>Imagine a &quot;User Settings&quot; form.</p><ol>
 <li>When you select User A, the form should load User A&#39;s settings.</li>
 <li>You edit the settings (local state).</li>
 <li>If you refresh the page, your edits should persist (persistence).</li>
 <li>If you switch to User B, the form should reset to User B&#39;s settings (linked state).</li>
 </ol>
-<p>Standard <code>storageSignal</code> persists forever. Standard <code>linkedSignal</code> doesn&#39;t persist. <code>storageLinkedSignal</code> does both.</p><h2 id="usage-14">Usage</h2>
+<p>Standard <code>storageSignal</code> persists forever. Standard <code>linkedSignal</code> doesn&#39;t persist. <code>storageLinkedSignal</code> does both.</p><h2 id="usage-6">Usage</h2>
 <pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> input <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageLinkedSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -31,7 +31,7 @@ title: Linked Signals
     <span class="token function-variable function">computation</span><span class="token operator">:</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">createDefaultSettings</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="how-it-works-4">How It Works</h2>
+</code></pre><h2 id="how-it-works-1">How It Works</h2>
 <ol>
 <li><p><strong>Initialization</strong>:</p><ul>
 <li>It checks storage for the generated key.</li>
@@ -51,7 +51,7 @@ title: Linked Signals
 </ul>
 </li>
 </ol>
-<h2 id="advanced-static-keys-1">Advanced: Static Keys</h2>
+<h2 id="advanced-static-keys">Advanced: Static Keys</h2>
 <p>Sometimes you want the key to be static, but the <em>value</em> to reset when a dependency changes.</p><pre><code class="language-typescript"><span class="token comment">// Example: A "Draft" that resets when you change the category</span>
 category <span class="token operator">=</span> <span class="token function">signal</span><span class="token punctuation">(</span><span class="token string">'tech'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
