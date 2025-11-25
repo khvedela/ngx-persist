@@ -1,84 +1,124 @@
-# ngx-persist
+<p align="center">
+  <img src="https://raw.githubusercontent.com/khvedela/ngx-persist/main/projects/docs/public/logo.png" alt="ngx-persist logo" width="120">
+</p>
 
-Type-safe, signal-based persistent state primitive for Angular (17–21).
+# NgxPersist
 
-## Install
+[**📚 Read the Documentation**](https://khvedela.github.io/ngx-persist/)
+
+**NgxPersist** is a type-safe, signal-based persistent state primitive for Angular 19+.
+
+It syncs your state with `localStorage`, `sessionStorage`, `IndexedDB`, or any custom backend, providing a seamless developer experience.
+
+## Features
+
+- 🚀 **Signal-based**: Built for Angular Signals.
+- 🔄 **Cross-Tab Sync**: Automatically syncs state across tabs using `BroadcastChannel`.
+- 📦 **Pluggable Adapters**: `localStorage`, `sessionStorage`, `memory`, and custom adapters.
+- 🔗 **Linked Signals**: Persist state that depends on other signals.
+- 🌐 **Resource API**: Offline-first data fetching with `persistResource`.
+- 🏪 **NGRX Integration**: Seamless `SignalStore` persistence.
+
+## Installation
 
 ```bash
 npm install ngx-persist
 ```
 
-## Setup
+## Usage
 
-```ts
-// app.config.ts
+### 1. Global Configuration
+
+Add `provideNgxPersist` to your `app.config.ts`.
+
+```typescript
 import { provideNgxPersist } from 'ngx-persist';
 
-export const appConfig: ApplicationConfig = {
-  providers: [provideNgxPersist({ prefix: 'myapp' })],
+export const appConfig = {
+  providers: [
+    provideNgxPersist({ 
+      namespace: 'my-app' // Prefixes all keys to avoid collisions
+    })
+  ]
 };
 ```
 
-## Usage
+### 2. Basic Persistence (`storageSignal`)
 
-```ts
-import { Component } from '@angular/core';
+Create a signal that automatically saves to `localStorage`.
+
+```typescript
 import { storageSignal } from 'ngx-persist';
 
-interface UserSettings {
-  theme: 'dark' | 'light';
-  notifications: boolean;
-}
-
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  template: `
-    <p>Current theme: {{ settings().theme }}</p>
-    <button (click)="toggleTheme()">Toggle Theme</button>
-  `
-})
-export class AppComponent {
-  // Persists to localStorage with key "myapp:settings"
-  settings = storageSignal<UserSettings>({
-    key: 'settings',
-    initial: { theme: 'light', notifications: true }
+@Component({ ... })
+export class SettingsComponent {
+  // Stored as 'my-app:theme'
+  theme = storageSignal({
+    key: 'theme',
+    initial: 'light'
   });
 
-  toggleTheme() {
-    this.settings.update(s => ({
-      ...s,
-      theme: s.theme === 'light' ? 'dark' : 'light'
-    }));
+  toggle() {
+    this.theme.update(t => t === 'light' ? 'dark' : 'light');
   }
 }
 ```
 
-## API
+### 3. Async & Custom Adapters
 
-### `storageSignal<T>(options)`
-Creates a signal that syncs with storage.
+Use `IndexedDB` or other async storage. The `loaded` signal tells you when data is ready.
 
-### `StorageSignal<T>` methods
-*   `()`: Read value.
-*   `set(value)`: Update value and storage.
-*   `update(fn)`: Update value based on current.
-*   `clear()`: Reset to initial and remove from storage.
-*   `key`: The actual namespaced key used.
+```typescript
+const largeData = storageSignal({
+  key: 'large-dataset',
+  initial: [],
+  adapter: indexedDbAdapter // or any custom StorageAdapter
+});
 
-### `provideNgxPersist(config)`
-Configures the library globally.
-*   `config.prefix`: Optional string to prefix all keys (e.g., `app:key`).
+// Check if hydrated
+if (largeData.loaded()) {
+  console.log(largeData());
+}
+```
 
-### `StorageSignalOptions<T>`
-*   `key`: Unique key for storage.
-*   `initial`: Default value.
-*   `adapter`: 'local' (default), 'session', or custom adapter.
-*   `serialize`: Custom serializer (default: `JSON.stringify`).
-*   `parse`: Custom parser (default: `JSON.parse`).
+### 4. Linked Signals (`storageLinkedSignal`)
 
-## Angular Version Support
-Officially supports Angular 17–21.
+Persist state that resets when a dependency changes (e.g., form drafts per user).
+
+```typescript
+const userId = input.required<string>();
+
+const draft = storageLinkedSignal({
+  key: (id) => `draft_${id}`, // Unique key per user
+  source: userId,
+  computation: () => '' // Reset value when user changes
+});
+```
+
+### 5. Resource API (`persistResource`)
+
+Add offline-first caching to Angular's `resource` API.
+
+```typescript
+const userResource = resource({
+  loader: persistResource(fetchUser, {
+    key: (params) => `user_${params.id}`,
+    adapter: localStorageAdapter
+  })
+});
+```
+
+### 6. NGRX SignalStore (`withPersist`)
+
+Persist your SignalStore state with a single line.
+
+```typescript
+export const UserStore = signalStore(
+  withState({ name: 'Guest' }),
+  withPersist({ key: 'user-store' })
+);
+```
 
 ## License
+
 MIT
