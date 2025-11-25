@@ -1,7 +1,7 @@
 {
   "name": "ngx-persist",
   "version": "0.0.1",
-  "description": "Angular 17+ persistent storage utilities for localStorage, sessionStorage, and IndexedDB.",
+  "description": "Angular 19+ persistent storage utilities for localStorage, sessionStorage, IndexedDB and more.",
   "author": "David",
   "license": "MIT",
   "keywords": [
