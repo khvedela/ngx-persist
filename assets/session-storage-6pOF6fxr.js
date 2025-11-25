@@ -11,7 +11,7 @@ title: SessionStorage Adapter
 <li>Wizard/multi-step form progress</li>
 <li>Data that shouldn&#39;t persist between visits</li>
 </ul>
-<h2 id="basic-usage-3">Basic Usage</h2>
+<h2 id="basic-usage-4">Basic Usage</h2>
 <p>To use sessionStorage, specify the <code>adapter</code> option:</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -189,7 +189,7 @@ sessionData<span class="token punctuation">.</span><span class="token function">
 <li>✅ Works in Private/Incognito mode (but cleared on exit)</li>
 <li>❌ Not available in Web Workers</li>
 </ul>
-<h2 id="best-practices-5">Best Practices</h2>
+<h2 id="best-practices-6">Best Practices</h2>
 <ol>
 <li><strong>Use for temporary data only</strong> - Don&#39;t rely on sessionStorage for critical data</li>
 <li><strong>Provide fallbacks</strong> - Always have a default initial value</li>

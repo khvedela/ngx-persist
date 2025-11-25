@@ -10,7 +10,7 @@ title: LocalStorage Adapter
 <li>Form drafts</li>
 <li>UI state that should persist across sessions</li>
 </ul>
-<h2 id="basic-usage-2">Basic Usage</h2>
+<h2 id="basic-usage-3">Basic Usage</h2>
 <p>By default, <code>storageSignal</code> uses localStorage, so you don&#39;t need to explicitly specify it.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -78,7 +78,7 @@ title: LocalStorage Adapter
   key<span class="token operator">:</span> <span class="token string">'products'</span><span class="token punctuation">,</span>  
   initial<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">as</span> Product<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// Could exceed localStorage limits</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="best-practices-4">Best Practices</h2>
+</code></pre><h2 id="best-practices-5">Best Practices</h2>
 <h3 id="1-use-descriptive-keys-1">1. Use Descriptive Keys</h3>
 <pre><code class="language-typescript"><span class="token comment">// ✅ Good</span>
 <span class="token keyword">const</span> cartItems <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span> key<span class="token operator">:</span> <span class="token string">'shopping-cart-items'</span><span class="token punctuation">,</span> initial<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

@@ -35,7 +35,7 @@ title: Custom Adapters
 <li><a href="/storage-adapters/examples/firebase-sync"><strong>Firebase Sync</strong></a>: Real-time synchronization across devices using Firestore.</li>
 <li><a href="/storage-adapters/examples/encryption"><strong>Encrypted Storage</strong></a>: Encrypt data before saving it to LocalStorage.</li>
 </ul>
-<p>Check out these guides to see how to implement <code>StorageAdapter</code> for your specific needs.</p><h2 id="best-practices-3">Best Practices</h2>
+<p>Check out these guides to see how to implement <code>StorageAdapter</code> for your specific needs.</p><h2 id="best-practices-4">Best Practices</h2>
 <ol>
 <li><strong>Error Handling</strong>: Wrap your storage calls in <code>try/catch</code> blocks. If <code>getItem</code> fails, return <code>null</code> so the signal falls back to its initial value.</li>
 <li><strong>Type Safety</strong>: Avoid <code>any</code>. Use proper types for your data structures.</li>

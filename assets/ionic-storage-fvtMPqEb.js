@@ -32,7 +32,7 @@ npx cap <span class="token function">sync</span>
     <span class="token keyword">await</span> Preferences<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="usage-9">Usage</h2>
+</code></pre><h2 id="usage-16">Usage</h2>
 <p>Using it in a component is identical to any other adapter.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> CapacitorAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./capacitor.adapter'</span><span class="token punctuation">;</span>

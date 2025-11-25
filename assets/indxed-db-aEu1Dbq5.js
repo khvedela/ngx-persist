@@ -3,7 +3,7 @@ title: IndexedDB Adapter
 ---
 
 <h1 id="indexeddb-adapter-1">IndexedDB Adapter</h1>
-<p>The <code>IndexedDbAdapter</code> is a built-in asynchronous storage adapter for <strong>IndexedDB</strong>. It is ideal for storing large datasets, files, or complex objects that exceed the quota of LocalStorage.</p><h2 id="usage-10">Usage</h2>
+<p>The <code>IndexedDbAdapter</code> is a built-in asynchronous storage adapter for <strong>IndexedDB</strong>. It is ideal for storing large datasets, files, or complex objects that exceed the quota of LocalStorage.</p><h2 id="usage-12">Usage</h2>
 <p>Import <code>IndexedDbAdapter</code> from <code>ngx-persist</code> and pass it to <code>storageSignal</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal<span class="token punctuation">,</span> IndexedDbAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -38,7 +38,7 @@ title: IndexedDB Adapter
   id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
   name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="configuration-3">Configuration</h2>
+</code></pre><h2 id="configuration-4">Configuration</h2>
 <p>The <code>IndexedDbAdapter</code> constructor accepts two optional arguments:</p><ol>
 <li><code>dbName</code> (default: <code>'ngx-persist-db'</code>): The name of the IndexedDB database.</li>
 <li><code>storeName</code> (default: <code>'key-value-store'</code>): The name of the object store within the database.</li>

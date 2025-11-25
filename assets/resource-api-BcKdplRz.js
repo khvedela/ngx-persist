@@ -2,8 +2,8 @@ const n=`---
 title: Resource API Integration
 ---
 
-<h1 id="resource-api-integration-1">Resource API Integration</h1>
-<p>Angular 19 introduces the <code>resource</code> API (experimental) for handling asynchronous data fetching. <code>ngx-persist</code> provides a <code>persistResource</code> utility to easily add offline-first capabilities to your resources.</p><h2 id="the-problem-1">The Problem</h2>
+<h1 id="resource-api-integration-3">Resource API Integration</h1>
+<p>Angular 19 introduces the <code>resource</code> API (experimental) for handling asynchronous data fetching. <code>ngx-persist</code> provides a <code>persistResource</code> utility to easily add offline-first capabilities to your resources.</p><h2 id="the-problem-3">The Problem</h2>
 <p>When you fetch data from an API:</p><ol>
 <li><strong>Offline</strong>: If the user is offline, the fetch fails.</li>
 <li><strong>Slow Network</strong>: The user sees a loading spinner every time they visit the page.</li>
@@ -13,7 +13,7 @@ title: Resource API Integration
 <li>Fetch fresh data in the background.</li>
 <li>Update the UI (and cache) when fresh data arrives.</li>
 </ol>
-<h2 id="usage-13">Usage</h2>
+<h2 id="usage-15">Usage</h2>
 <p>Wrap your loader function with <code>persistResource</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> resource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> persistResource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -43,7 +43,7 @@ title: Resource API Integration
     <span class="token punctuation">)</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="how-it-works-3">How It Works</h2>
+</code></pre><h2 id="how-it-works-5">How It Works</h2>
 <p><code>persistResource</code> modifies the loader behavior:</p><ol>
 <li><strong>On Load</strong>:<ul>
 <li>It tries to fetch from the API.</li>

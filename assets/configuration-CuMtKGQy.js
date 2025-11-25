@@ -2,8 +2,8 @@ const n=`---
 title: Configuration
 ---
 
-<h1 id="configuration-4">Configuration</h1>
-<p>You can configure <code>ngx-persist</code> globally for your application using the <code>provideNgxPersist</code> function.</p><h2 id="global-configuration">Global Configuration</h2>
+<h1 id="configuration-5">Configuration</h1>
+<p>You can configure <code>ngx-persist</code> globally for your application using the <code>provideNgxPersist</code> function.</p><h2 id="global-configuration-1">Global Configuration</h2>
 <p>Add <code>provideNgxPersist</code> to your application&#39;s provider list (usually in <code>app.config.ts</code>).</p><pre><code class="language-typescript"><span class="token comment">// app.config.ts</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> ApplicationConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> provideNgxPersist <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
@@ -15,7 +15,7 @@ title: Configuration
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><h3 id="options">Options</h3>
+</code></pre><h3 id="options-1">Options</h3>
 <table>
 <thead>
 <tr>
@@ -38,8 +38,8 @@ title: Configuration
 <td align="left">A global namespace for your application keys (e.g., <code>'my-app'</code>). This prevents key collisions when running multiple apps on the same domain (like localhost).</td>
 </tr>
 </tbody></table>
-<h2 id="cross-tab-synchronization">Cross-Tab Synchronization</h2>
-<p>By default, <code>ngx-persist</code> automatically enables <strong>Cross-Tab Synchronization</strong> for <code>LocalStorage</code> and <code>SessionStorage</code>.</p><p>If a user changes a setting in one tab, it will instantly update in all other open tabs using the <code>BroadcastChannel</code> API. No extra configuration is required!</p><h2 id="key-prefixing">Key Prefixing</h2>
+<h2 id="cross-tab-synchronization-1">Cross-Tab Synchronization</h2>
+<p>By default, <code>ngx-persist</code> automatically enables <strong>Cross-Tab Synchronization</strong> for <code>LocalStorage</code> and <code>SessionStorage</code>.</p><p>If a user changes a setting in one tab, it will instantly update in all other open tabs using the <code>BroadcastChannel</code> API. No extra configuration is required!</p><h2 id="key-prefixing-1">Key Prefixing</h2>
 <p>If you set a <code>prefix</code> of <code>'myapp'</code>, a signal with key <code>'settings'</code> will be stored in LocalStorage as <code>'myapp:settings'</code>.</p><pre><code class="language-typescript"><span class="token comment">// app.config.ts</span>
 <span class="token function">provideNgxPersist</span><span class="token punctuation">(</span><span class="token punctuation">{</span> prefix<span class="token operator">:</span> <span class="token string">'shop'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
