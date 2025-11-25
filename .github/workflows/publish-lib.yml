@@ -21,7 +21,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build Library
-        run: npm run build
+        run: npx ng build ngx-persist
 
       - name: Publish to NPM
         run: npm publish
