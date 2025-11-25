@@ -69,7 +69,7 @@ Creates a signal that syncs with storage.
 
 ### `StorageSignal<T>` methods
 *   `()`: Read value.
-*   `set(value)`: Update value and storage.
+*   `set(value)`: Update value and storage. 
 *   `update(fn)`: Update value based on current.
 *   `clear()`: Reset to initial and remove from storage.
 *   `key`: The actual namespaced key used.
