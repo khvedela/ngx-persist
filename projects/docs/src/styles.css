@@ -1,0 +1,248 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+:root {
+  /* Material Design Palette - Indigo & Pink */
+  --primary-color: #3f51b5;
+  --primary-lighter: #c5cae9;
+  --primary-darker: #303f9f;
+
+  --accent-color: #ff4081;
+  --accent-lighter: #ff80ab;
+  --accent-darker: #f50057;
+
+  --warn-color: #f44336;
+
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-disabled: rgba(0, 0, 0, 0.38);
+
+  --divider-color: rgba(0, 0, 0, 0.12);
+  --bg-app: #fafafa;
+  --bg-card: #ffffff;
+
+  --sidenav-width: 260px;
+  --header-height: 64px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  @apply font-sans antialiased bg-[var(--bg-app)] text-[var(--text-primary)];
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Markdown Content Styling - Material Spec */
+.markdown-content {
+  @apply max-w-4xl mx-auto pb-20;
+}
+
+/* Page Title */
+.markdown-content h1 {
+  @apply text-4xl font-light mb-8 text-[var(--text-primary)];
+  letter-spacing: -0.01em;
+}
+
+/* Section Headings - Distinctive */
+.markdown-content h2 {
+  @apply text-2xl font-normal mt-12 mb-6 text-[var(--text-primary)] pb-2 border-b border-[var(--divider-color)];
+  letter-spacing: normal;
+}
+
+.markdown-content h3 {
+  @apply text-xl font-medium mt-10 mb-4 text-[var(--text-primary)];
+}
+
+.markdown-content h4 {
+  @apply text-base font-medium mt-8 mb-3 text-[var(--text-primary)];
+}
+
+/* Body Text */
+.markdown-content p {
+  @apply mb-6 text-base leading-7 text-[var(--text-primary)];
+  font-weight: 400;
+}
+
+/* Links */
+.markdown-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+.markdown-content ul,
+.markdown-content ol {
+  @apply mb-6 pl-6;
+}
+
+.markdown-content li {
+  @apply mb-2 leading-7;
+}
+
+/* Inline Code */
+.markdown-content :not(pre)>code {
+  @apply bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-black font-medium;
+}
+
+/* Code Blocks - Professional Boxed Style */
+.markdown-content pre {
+  @apply bg-[#282c34] text-[#abb2bf] p-5 rounded-lg overflow-x-auto mb-8 shadow-md border border-gray-700;
+  font-family: var(--font-mono);
+  position: relative;
+}
+
+.markdown-content pre code {
+  @apply bg-transparent p-0 text-[13px] leading-relaxed border-none;
+}
+
+/* Tables - Material Style */
+.markdown-content table {
+  @apply w-full border-collapse mb-8 bg-white shadow-sm rounded overflow-hidden border border-[var(--divider-color)];
+}
+
+.markdown-content th {
+  @apply px-4 py-3 text-left text-xs font-medium text-[var(--text-secondary)] uppercase tracking-wider border-b border-[var(--divider-color)] bg-gray-50;
+}
+
+.markdown-content td {
+  @apply px-4 py-3 text-sm text-[var(--text-primary)] border-b border-[var(--divider-color)];
+}
+
+.markdown-content tr:last-child td {
+  border-bottom: none;
+}
+
+/* Callout Cards (Blockquotes) */
+.markdown-content blockquote {
+  @apply relative pl-12 pr-4 py-4 my-8 rounded-lg border-l-4 bg-white shadow-sm;
+  border-left-color: var(--primary-color);
+}
+
+.markdown-content blockquote::before {
+  content: 'info';
+  /* Material Icon name */
+  font-family: 'Material Icons';
+  @apply absolute left-3 top-4 text-2xl;
+  color: var(--primary-color);
+}
+
+.markdown-content blockquote p {
+  @apply mb-0 text-[var(--text-secondary)];
+  font-style: normal;
+}
+
+/* Horizontal Rule */
+.markdown-content hr {
+  @apply border-t border-[var(--divider-color)] my-10;
+}
+
+/* PrismJS Theme - One Dark inspired */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #abb2bf;
+  text-shadow: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Token Colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #abb2bf;
+}
+
+.token.selector,
+.token.tag {
+  color: #e06c75;
+}
+
+.token.property,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.attr-name,
+.token.deleted {
+  color: #d19a66;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.builtin,
+.token.inserted {
+  color: #98c379;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #56b6c2;
+}
+
+.token.atrule,
+.token.keyword {
+  color: #c678dd;
+}
+
+.token.function,
+.token.class-name {
+  color: #61afef;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #c678dd;
+}
+
+/* Utility Classes */
+.mat-elevation-z2 {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.mat-elevation-z4 {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+}
