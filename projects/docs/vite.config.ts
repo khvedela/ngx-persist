@@ -30,7 +30,16 @@ export default defineConfig(({ mode }) => ({
         routes: [],
       },
     }),
-    tailwindcss()
+    tailwindcss(),
+    {
+      name: 'replace-base-href',
+      transformIndexHtml(html) {
+        if (mode === 'production') {
+          return html.replace('<base href="/" />', '<base href="/ngx-persist/" />');
+        }
+        return html;
+      },
+    }
   ],
 }));
 // Trigger reload
