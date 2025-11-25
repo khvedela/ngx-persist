@@ -8,6 +8,14 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -24,7 +32,5 @@ jobs:
         run: npx ng build ngx-persist
 
       - name: Publish to NPM
-        run: npm publish
+        run: npm publish --provenance
         working-directory: dist/ngx-persist
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
