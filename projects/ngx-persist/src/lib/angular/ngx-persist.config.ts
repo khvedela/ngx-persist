@@ -4,6 +4,7 @@ import { MemoryAdapter } from '../adapters/memory-adapter';
 
 export interface NgxPersistConfig {
   prefix?: string;
+  namespace?: string;
   // later: logger, error strategy, etc.
 }
 
@@ -20,6 +21,8 @@ export function provideNgxPersist(config: NgxPersistConfig = {}): Provider[] {
   ];
 }
 
+import { withBroadcastChannel } from '../core/broadcast-channel-plugin';
+
 export function resolveAdapter(adapter?: BuiltInAdapterName | StorageAdapter): StorageAdapter {
   if (adapter && typeof adapter === 'object') return adapter;
 
@@ -29,11 +32,11 @@ export function resolveAdapter(adapter?: BuiltInAdapterName | StorageAdapter): S
   }
 
   if (adapter === 'session') {
-    return createWebStorageAdapter(() => window.sessionStorage);
+    return withBroadcastChannel(createWebStorageAdapter(() => window.sessionStorage));
   }
 
   // default: local
-  return createWebStorageAdapter(() => window.localStorage);
+  return withBroadcastChannel(createWebStorageAdapter(() => window.localStorage));
 }
 
 function createWebStorageAdapter(getStore: () => Storage): StorageAdapter {

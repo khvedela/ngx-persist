@@ -6,6 +6,7 @@ import { buildKey } from '../core/key-utils';
 export interface StorageSignal<T> {
   (): T;
   readonly key: string;
+  readonly loaded: Signal<boolean>;
 
   set(value: T): void;
   update(updater: (value: T) => T): void;
@@ -24,16 +25,34 @@ export function storageSignal<T>(options: StorageSignalOptions<T>): StorageSigna
   const parse = options.parse ?? defaultParse<T>(options.initial);
 
   const state = signal<T>(options.initial);
+  const loaded = signal<boolean>(!adapter.isAsync);
 
-  hydrateFromAdapter(state, adapter, key, parse);
+  hydrateFromAdapter(state, loaded, adapter, key, parse);
 
   // Persist on change
   effect(() => {
     const value = state();
-    persistToAdapter(adapter, key, value, serialize);
+    // Only persist if loaded (avoid overwriting storage with initial value before hydration)
+    if (loaded()) {
+      persistToAdapter(adapter, key, value, serialize);
+    }
   });
 
-  const api = createStorageSignalApi(state, key, adapter, options.initial);
+  // Subscribe to external changes (e.g. BroadcastChannel)
+  if (adapter.subscribe) {
+    const cleanup = adapter.subscribe((changedKey) => {
+      if (changedKey === key || changedKey === null) {
+        // re-hydrate
+        hydrateFromAdapter(state, loaded, adapter, key, parse);
+      }
+    });
+    // Note: We can't easily cleanup this subscription as signals don't have a destroy hook yet.
+    // In a component, it's fine. In a service, it lives forever.
+    // Ideally we'd use DestroyRef but we are in a function.
+    // For now, we assume the signal lives as long as the context.
+  }
+
+  const api = createStorageSignalApi(state, loaded, key, adapter, options.initial);
 
   return api;
 }
@@ -56,6 +75,7 @@ function defaultParse<T>(initial: T) {
 
 function hydrateFromAdapter<T>(
   state: Signal<T> & { set(value: T): void },
+  loaded: Signal<boolean> & { set(value: boolean): void },
   adapter: StorageAdapter,
   key: string,
   parse: (raw: string) => T,
@@ -68,12 +88,18 @@ function hydrateFromAdapter<T>(
         if (raw != null) {
           state.set(parse(raw));
         }
-      }).catch(() => { /* ignore, keep initial */ });
-    } else if (result != null) {
-      state.set(parse(result));
+        loaded.set(true);
+      }).catch(() => {
+        loaded.set(true);
+      });
+    } else {
+      if (result != null) {
+        state.set(parse(result));
+      }
+      loaded.set(true);
     }
   } catch {
-    // swallow, stay with initial
+    loaded.set(true);
   }
 }
 
@@ -97,6 +123,7 @@ function persistToAdapter<T>(
 
 function createStorageSignalApi<T>(
   state: Signal<T> & { set(value: T): void },
+  loaded: Signal<boolean>,
   key: string,
   adapter: StorageAdapter,
   initial: T,
@@ -105,6 +132,7 @@ function createStorageSignalApi<T>(
 
   const api: StorageSignal<T> = Object.assign(callable, {
     key,
+    loaded,
     set(value: T): void {
       state.set(value);
     },

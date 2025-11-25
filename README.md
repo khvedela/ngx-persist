@@ -1,59 +1,124 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/khvedela/ngx-persist/main/projects/docs/public/logo.png" alt="ngx-persist logo" width="120">
+</p>
+
 # NgxPersist
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+[**📚 Read the Documentation**](https://khvedela.github.io/ngx-persist/)
 
-## Development server
+**NgxPersist** is a type-safe, signal-based persistent state primitive for Angular 19+.
 
-To start a local development server, run:
+It syncs your state with `localStorage`, `sessionStorage`, `IndexedDB`, or any custom backend, providing a seamless developer experience.
 
-```bash
-ng serve
-```
+## Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- 🚀 **Signal-based**: Built for Angular Signals.
+- 🔄 **Cross-Tab Sync**: Automatically syncs state across tabs using `BroadcastChannel`.
+- 📦 **Pluggable Adapters**: `localStorage`, `sessionStorage`, `memory`, and custom adapters.
+- 🔗 **Linked Signals**: Persist state that depends on other signals.
+- 🌐 **Resource API**: Offline-first data fetching with `persistResource`.
+- 🏪 **NGRX Integration**: Seamless `SignalStore` persistence.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Installation
 
 ```bash
-ng generate --help
+npm install ngx-persist
 ```
 
-## Building
+## Usage
 
-To build the project run:
+### 1. Global Configuration
 
-```bash
-ng build
+Add `provideNgxPersist` to your `app.config.ts`.
+
+```typescript
+import { provideNgxPersist } from 'ngx-persist';
+
+export const appConfig = {
+  providers: [
+    provideNgxPersist({ 
+      namespace: 'my-app' // Prefixes all keys to avoid collisions
+    })
+  ]
+};
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 2. Basic Persistence (`storageSignal`)
 
-## Running unit tests
+Create a signal that automatically saves to `localStorage`.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+```typescript
+import { storageSignal } from 'ngx-persist';
 
-```bash
-ng test
+@Component({ ... })
+export class SettingsComponent {
+  // Stored as 'my-app:theme'
+  theme = storageSignal({
+    key: 'theme',
+    initial: 'light'
+  });
+
+  toggle() {
+    this.theme.update(t => t === 'light' ? 'dark' : 'light');
+  }
+}
 ```
 
-## Running end-to-end tests
+### 3. Async & Custom Adapters
 
-For end-to-end (e2e) testing, run:
+Use `IndexedDB` or other async storage. The `loaded` signal tells you when data is ready.
 
-```bash
-ng e2e
+```typescript
+const largeData = storageSignal({
+  key: 'large-dataset',
+  initial: [],
+  adapter: indexedDbAdapter // or any custom StorageAdapter
+});
+
+// Check if hydrated
+if (largeData.loaded()) {
+  console.log(largeData());
+}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### 4. Linked Signals (`storageLinkedSignal`)
 
-## Additional Resources
+Persist state that resets when a dependency changes (e.g., form drafts per user).
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```typescript
+const userId = input.required<string>();
+
+const draft = storageLinkedSignal({
+  key: (id) => `draft_${id}`, // Unique key per user
+  source: userId,
+  computation: () => '' // Reset value when user changes
+});
+```
+
+### 5. Resource API (`persistResource`)
+
+Add offline-first caching to Angular's `resource` API.
+
+```typescript
+const userResource = resource({
+  loader: persistResource(fetchUser, {
+    key: (params) => `user_${params.id}`,
+    adapter: localStorageAdapter
+  })
+});
+```
+
+### 6. NGRX SignalStore (`withPersist`)
+
+Persist your SignalStore state with a single line.
+
+```typescript
+export const UserStore = signalStore(
+  withState({ name: 'Guest' }),
+  withPersist({ key: 'user-store' })
+);
+```
+
+## License
+
+MIT
