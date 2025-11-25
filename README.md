@@ -119,6 +119,17 @@ export const UserStore = signalStore(
 );
 ```
 
+## Releasing
+
+To publish a new version to NPM:
+
+1.  Update the version in `projects/ngx-persist/package.json`.
+2.  Commit and push the change.
+3.  Create a new **Release** on GitHub with a tag matching the version (e.g., `v0.0.2`).
+4.  The **Publish Library** workflow will automatically build and publish the package.
+
+> **Note:** Ensure you have added your `NPM_TOKEN` to the repository secrets.
+
 ## License
 
 MIT

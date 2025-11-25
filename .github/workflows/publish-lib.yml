@@ -1,0 +1,30 @@
+name: Publish Library
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Library
+        run: ng build ngx-persist
+
+      - name: Publish to NPM
+        run: npm publish
+        working-directory: dist/ngx-persist
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
