@@ -2,8 +2,8 @@ const n=`---
 title: API Sync Adapter
 ---
 
-<h1 id="api-sync-adapter">API Sync Adapter</h1>
-<p>This example demonstrates how to create a <code>StorageAdapter</code> that synchronizes state with a backend API using Angular&#39;s <code>HttpClient</code>. This allows your application state to persist across devices and sessions.</p><h2 id="implementation">Implementation</h2>
+<h1 id="api-sync-adapter-1">API Sync Adapter</h1>
+<p>This example demonstrates how to create a <code>StorageAdapter</code> that synchronizes state with a backend API using Angular&#39;s <code>HttpClient</code>. This allows your application state to persist across devices and sessions.</p><h2 id="implementation-4">Implementation</h2>
 <p>We&#39;ll create an <code>ApiAdapter</code> service that implements <code>StorageAdapter</code>. Since API calls are asynchronous, we set <code>isAsync = true</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> HttpClient <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/common/http'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> firstValueFrom <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rxjs'</span><span class="token punctuation">;</span>
@@ -47,7 +47,7 @@ title: API Sync Adapter
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="usage-with-storagesignal">Usage with storageSignal</h2>
+</code></pre><h2 id="usage-with-storagesignal-1">Usage with storageSignal</h2>
 <p>Inject the <code>ApiAdapter</code> and pass it to the <code>storageSignal</code> configuration.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> JsonPipe <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/common'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
@@ -84,7 +84,7 @@ title: API Sync Adapter
     <span class="token keyword">this</span><span class="token punctuation">.</span>theme<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>current <span class="token operator">=></span> current <span class="token operator">===</span> <span class="token string">'light'</span> <span class="token operator">?</span> <span class="token string">'dark'</span> <span class="token operator">:</span> <span class="token string">'light'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="advanced-real-time-updates">Advanced: Real-time Updates</h2>
+</code></pre><h2 id="advanced-real-time-updates-1">Advanced: Real-time Updates</h2>
 <p>If your API supports WebSockets or Server-Sent Events, you can implement the <code>subscribe</code> method to update the signal when the data changes on the server (e.g., from another device).</p><pre><code class="language-typescript">  <span class="token comment">// In ApiAdapter</span>
   
   <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token function-variable function">listener</span><span class="token operator">:</span> <span class="token punctuation">(</span>key<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span> <span class="token punctuation">{</span>

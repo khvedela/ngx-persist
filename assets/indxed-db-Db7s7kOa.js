@@ -2,8 +2,8 @@ const n=`---
 title: IndexedDB Adapter
 ---
 
-<h1 id="indexeddb-adapter">IndexedDB Adapter</h1>
-<p>The <code>IndexedDbAdapter</code> is a built-in asynchronous storage adapter for <strong>IndexedDB</strong>. It is ideal for storing large datasets, files, or complex objects that exceed the quota of LocalStorage.</p><h2 id="usage-4">Usage</h2>
+<h1 id="indexeddb-adapter-1">IndexedDB Adapter</h1>
+<p>The <code>IndexedDbAdapter</code> is a built-in asynchronous storage adapter for <strong>IndexedDB</strong>. It is ideal for storing large datasets, files, or complex objects that exceed the quota of LocalStorage.</p><h2 id="usage-13">Usage</h2>
 <p>Import <code>IndexedDbAdapter</code> from <code>ngx-persist</code> and pass it to <code>storageSignal</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal<span class="token punctuation">,</span> IndexedDbAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -38,14 +38,14 @@ title: IndexedDB Adapter
   id<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
   name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="configuration-1">Configuration</h2>
+</code></pre><h2 id="configuration-4">Configuration</h2>
 <p>The <code>IndexedDbAdapter</code> constructor accepts two optional arguments:</p><ol>
 <li><code>dbName</code> (default: <code>'ngx-persist-db'</code>): The name of the IndexedDB database.</li>
 <li><code>storeName</code> (default: <code>'key-value-store'</code>): The name of the object store within the database.</li>
 </ol>
 <pre><code class="language-typescript"><span class="token comment">// Custom configuration</span>
 <span class="token keyword">const</span> adapter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IndexedDbAdapter</span><span class="token punctuation">(</span><span class="token string">'my-custom-db'</span><span class="token punctuation">,</span> <span class="token string">'user-settings'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="async-hydration">Async Hydration</h2>
+</code></pre><h2 id="async-hydration-1">Async Hydration</h2>
 <p>Since IndexedDB is asynchronous, the signal will initially hold the <code>initial</code> value. Once the data is retrieved from the database, the signal will update automatically.</p><blockquote>
 <p>Ensure your UI can handle the initial state gracefully while data is loading.</p></blockquote>
 <pre><code class="language-typescript"><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
