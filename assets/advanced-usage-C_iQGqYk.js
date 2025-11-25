@@ -32,7 +32,7 @@ title: Advanced Usage
 <span class="token punctuation">}</span>
 </code></pre><h2 id="linked-signals">Linked Signals</h2>
 <p>Angular 19 introduces <code>linkedSignal</code> for state that depends on another signal but can be overridden. <code>ngx-persist</code> supports this pattern with <code>storageLinkedSignal</code>.</p><p><a href="/usage/linked-signals"><strong>Read the full guide on Linked Signals</strong></a></p><h2 id="resource-api-integration">Resource API Integration</h2>
-<p>For offline-first data fetching, you can use <code>persistResource</code> to wrap an Angular <code>ResourceLoader</code>.</p><p><a href="/usage/resource-api"><strong>Read the full guide on Resource API</strong></a></p><h2 id="best-practices-3">Best Practices</h2>
+<p>For offline-first data fetching, you can use <code>persistResource</code> to wrap an Angular <code>ResourceLoader</code>.</p><p><a href="/usage/resource-api"><strong>Read the full guide on Resource API</strong></a></p><h2 id="best-practices-6">Best Practices</h2>
 <h3 id="1-key-naming">1. Key Naming</h3>
 <p>Use consistent, descriptive keys. If you haven&#39;t set a global prefix, consider namespacing your keys manually (e.g., <code>'user:profile'</code>, <code>'ui:theme'</code>).</p><h3 id="2-state-size">2. State Size</h3>
 <p>LocalStorage is synchronous and limited to ~5MB.</p><ul>

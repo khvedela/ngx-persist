@@ -2,7 +2,7 @@ const n=`---
 title: Configuration
 ---
 
-<h1 id="configuration-2">Configuration</h1>
+<h1 id="configuration-4">Configuration</h1>
 <p>You can configure <code>ngx-persist</code> globally for your application using the <code>provideNgxPersist</code> function.</p><h2 id="global-configuration">Global Configuration</h2>
 <p>Add <code>provideNgxPersist</code> to your application&#39;s provider list (usually in <code>app.config.ts</code>).</p><pre><code class="language-typescript"><span class="token comment">// app.config.ts</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> ApplicationConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>

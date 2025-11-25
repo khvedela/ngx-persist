@@ -2,11 +2,11 @@ const n=`---
 title: Ionic & Capacitor Adapter
 ---
 
-<h1 id="ionic--capacitor-adapter">Ionic &amp; Capacitor Adapter</h1>
-<p>When building mobile applications with Ionic and Capacitor, you often need to persist data using native storage mechanisms. This example shows how to wrap <code>@capacitor/preferences</code> (formerly <code>Storage</code>) into a <code>StorageAdapter</code>.</p><h2 id="prerequisites">Prerequisites</h2>
+<h1 id="ionic--capacitor-adapter-1">Ionic &amp; Capacitor Adapter</h1>
+<p>When building mobile applications with Ionic and Capacitor, you often need to persist data using native storage mechanisms. This example shows how to wrap <code>@capacitor/preferences</code> (formerly <code>Storage</code>) into a <code>StorageAdapter</code>.</p><h2 id="prerequisites-1">Prerequisites</h2>
 <p>Install the Capacitor Preferences plugin:</p><pre><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @capacitor/preferences
 npx cap <span class="token function">sync</span>
-</code></pre><h2 id="implementation-3">Implementation</h2>
+</code></pre><h2 id="implementation-7">Implementation</h2>
 <p>The <code>Preferences</code> API is asynchronous, so we set <code>isAsync = true</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Preferences <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@capacitor/preferences'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> StorageAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
@@ -32,7 +32,7 @@ npx cap <span class="token function">sync</span>
     <span class="token keyword">await</span> Preferences<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="usage-3">Usage</h2>
+</code></pre><h2 id="usage-9">Usage</h2>
 <p>Using it in a component is identical to any other adapter.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> CapacitorAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./capacitor.adapter'</span><span class="token punctuation">;</span>
@@ -61,7 +61,7 @@ npx cap <span class="token function">sync</span>
     adapter<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>adapter
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="using-ionicstorage-sqlite">Using @ionic/storage (SQLite)</h2>
+</code></pre><h2 id="using-ionicstorage-sqlite-1">Using @ionic/storage (SQLite)</h2>
 <p>If you need a full SQL-lite backed storage, you can use <code>@ionic/storage</code>. The implementation is very similar.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Storage <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@ionic/storage-angular'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> StorageAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>

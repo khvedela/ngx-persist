@@ -2,15 +2,15 @@ const n=`---
 title: LocalStorage Adapter
 ---
 
-<h1 id="localstorage-adapter">LocalStorage Adapter</h1>
-<p>The <strong>localStorage</strong> adapter is the default storage backend for <code>ngx-persist</code>. It provides persistent storage that survives browser sessions and page reloads.</p><h2 id="overview">Overview</h2>
+<h1 id="localstorage-adapter-1">LocalStorage Adapter</h1>
+<p>The <strong>localStorage</strong> adapter is the default storage backend for <code>ngx-persist</code>. It provides persistent storage that survives browser sessions and page reloads.</p><h2 id="overview-2">Overview</h2>
 <p>LocalStorage is ideal for:</p><ul>
 <li>User preferences (theme, language, settings)</li>
 <li>Shopping cart data</li>
 <li>Form drafts</li>
 <li>UI state that should persist across sessions</li>
 </ul>
-<h2 id="basic-usage">Basic Usage</h2>
+<h2 id="basic-usage-2">Basic Usage</h2>
 <p>By default, <code>storageSignal</code> uses localStorage, so you don&#39;t need to explicitly specify it.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -60,13 +60,13 @@ title: LocalStorage Adapter
     <span class="token keyword">this</span><span class="token punctuation">.</span>preferences<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>p <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token operator">...</span>p<span class="token punctuation">,</span> notifications<span class="token operator">:</span> <span class="token operator">!</span>p<span class="token punctuation">.</span>notifications <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="explicit-configuration">Explicit Configuration</h2>
+</code></pre><h2 id="explicit-configuration-1">Explicit Configuration</h2>
 <p>You can explicitly specify the localStorage adapter:</p><pre><code class="language-typescript"><span class="token keyword">const</span> settings <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'app-settings'</span><span class="token punctuation">,</span>
   initial<span class="token operator">:</span> <span class="token punctuation">{</span> darkMode<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
   adapter<span class="token operator">:</span> <span class="token string">'local'</span> <span class="token comment">// Explicitly use localStorage</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="storage-limits">Storage Limits</h2>
+</code></pre><h2 id="storage-limits-1">Storage Limits</h2>
 <p>LocalStorage has a size limit of approximately <strong>5-10 MB</strong> (varies by browser). Keep this in mind when storing data:</p><pre><code class="language-typescript"><span class="token comment">// ✅ Good: Small, structured data</span>
 <span class="token keyword">const</span> userSettings <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'settings'</span><span class="token punctuation">,</span>
@@ -78,14 +78,14 @@ title: LocalStorage Adapter
   key<span class="token operator">:</span> <span class="token string">'products'</span><span class="token punctuation">,</span>  
   initial<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">as</span> Product<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// Could exceed localStorage limits</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="best-practices-1">Best Practices</h2>
-<h3 id="1-use-descriptive-keys">1. Use Descriptive Keys</h3>
+</code></pre><h2 id="best-practices-4">Best Practices</h2>
+<h3 id="1-use-descriptive-keys-1">1. Use Descriptive Keys</h3>
 <pre><code class="language-typescript"><span class="token comment">// ✅ Good</span>
 <span class="token keyword">const</span> cartItems <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span> key<span class="token operator">:</span> <span class="token string">'shopping-cart-items'</span><span class="token punctuation">,</span> initial<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// ❌ Bad</span>
 <span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span> key<span class="token operator">:</span> <span class="token string">'items'</span><span class="token punctuation">,</span> initial<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h3 id="2-provide-sensible-defaults">2. Provide Sensible Defaults</h3>
+</code></pre><h3 id="2-provide-sensible-defaults-1">2. Provide Sensible Defaults</h3>
 <pre><code class="language-typescript"><span class="token keyword">const</span> userPrefs <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'user-prefs'</span><span class="token punctuation">,</span>
   initial<span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -94,7 +94,7 @@ title: LocalStorage Adapter
     compactMode<span class="token operator">:</span> <span class="token boolean">false</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h3 id="3-keep-state-flat">3. Keep State Flat</h3>
+</code></pre><h3 id="3-keep-state-flat-1">3. Keep State Flat</h3>
 <pre><code class="language-typescript"><span class="token comment">// ✅ Good: Flat structure</span>
 <span class="token keyword">interface</span> <span class="token class-name">AppState</span> <span class="token punctuation">{</span>
   userId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
@@ -114,7 +114,7 @@ title: LocalStorage Adapter
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="clearing-data">Clearing Data</h2>
+</code></pre><h2 id="clearing-data-1">Clearing Data</h2>
 <p>You can clear stored data using the <code>clear()</code> method:</p><pre><code class="language-typescript"><span class="token keyword">const</span> prefs <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'preferences'</span><span class="token punctuation">,</span>
   initial<span class="token operator">:</span> <span class="token punctuation">{</span> theme<span class="token operator">:</span> <span class="token string">'light'</span> <span class="token punctuation">}</span>
@@ -122,14 +122,14 @@ title: LocalStorage Adapter
 
 <span class="token comment">// Reset to initial value and remove from localStorage</span>
 prefs<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="browser-compatibility">Browser Compatibility</h2>
+</code></pre><h2 id="browser-compatibility-2">Browser Compatibility</h2>
 <p>LocalStorage is supported in all modern browsers:</p><ul>
 <li>✅ Chrome, Edge, Firefox, Safari</li>
 <li>✅ Mobile browsers (iOS Safari, Chrome Mobile)</li>
 <li>⚠️ Private/Incognito mode may have restrictions</li>
 <li>❌ Not available in Web Workers</li>
 </ul>
-<h2 id="next-steps">Next Steps</h2>
+<h2 id="next-steps-2">Next Steps</h2>
 <ul>
 <li>Learn about <a href="/session-storage">SessionStorage</a> for temporary data</li>
 <li>Implement <a href="/custom-adapters">Custom Adapters</a> for advanced use cases</li>

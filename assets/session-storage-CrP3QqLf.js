@@ -2,8 +2,8 @@ const n=`---
 title: SessionStorage Adapter
 ---
 
-<h1 id="sessionstorage-adapter">SessionStorage Adapter</h1>
-<p>The <strong>sessionStorage</strong> adapter provides temporary storage that lasts only for the current browser session. Data is cleared when the tab or browser is closed.</p><h2 id="overview-1">Overview</h2>
+<h1 id="sessionstorage-adapter-1">SessionStorage Adapter</h1>
+<p>The <strong>sessionStorage</strong> adapter provides temporary storage that lasts only for the current browser session. Data is cleared when the tab or browser is closed.</p><h2 id="overview-3">Overview</h2>
 <p>SessionStorage is ideal for:</p><ul>
 <li>Temporary form data</li>
 <li>Current session state</li>
@@ -11,7 +11,7 @@ title: SessionStorage Adapter
 <li>Wizard/multi-step form progress</li>
 <li>Data that shouldn&#39;t persist between visits</li>
 </ul>
-<h2 id="basic-usage-1">Basic Usage</h2>
+<h2 id="basic-usage-3">Basic Usage</h2>
 <p>To use sessionStorage, specify the <code>adapter</code> option:</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -52,8 +52,8 @@ title: SessionStorage Adapter
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="use-cases-1">Use Cases</h2>
-<h3 id="1-multi-step-forms">1. Multi-Step Forms</h3>
+</code></pre><h2 id="use-cases-3">Use Cases</h2>
+<h3 id="1-multi-step-forms-1">1. Multi-Step Forms</h3>
 <p>Perfect for saving progress in multi-step forms:</p><pre><code class="language-typescript"><span class="token keyword">const</span> formProgress <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'form-wizard'</span><span class="token punctuation">,</span>
   initial<span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -66,7 +66,7 @@ title: SessionStorage Adapter
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   adapter<span class="token operator">:</span> <span class="token string">'session'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h3 id="2-temporary-filters">2. Temporary Filters</h3>
+</code></pre><h3 id="2-temporary-filters-1">2. Temporary Filters</h3>
 <p>Store temporary search/filter state:</p><pre><code class="language-typescript"><span class="token keyword">const</span> searchFilters <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'product-filters'</span><span class="token punctuation">,</span>
   initial<span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -76,13 +76,13 @@ title: SessionStorage Adapter
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   adapter<span class="token operator">:</span> <span class="token string">'session'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h3 id="3-active-tab-state">3. Active Tab State</h3>
+</code></pre><h3 id="3-active-tab-state-1">3. Active Tab State</h3>
 <p>Track which tab is active in a session:</p><pre><code class="language-typescript"><span class="token keyword">const</span> activeTab <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'active-tab'</span><span class="token punctuation">,</span>
   initial<span class="token operator">:</span> <span class="token string">'overview'</span><span class="token punctuation">,</span>
   adapter<span class="token operator">:</span> <span class="token string">'session'</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="sessionstorage-vs-localstorage">SessionStorage vs LocalStorage</h2>
+</code></pre><h2 id="sessionstorage-vs-localstorage-1">SessionStorage vs LocalStorage</h2>
 <table>
 <thead>
 <tr>
@@ -117,7 +117,7 @@ title: SessionStorage Adapter
 <td align="left">Manual clearing needed</td>
 </tr>
 </tbody></table>
-<h2 id="example-session-specific-cart">Example: Session-Specific Cart</h2>
+<h2 id="example-session-specific-cart-1">Example: Session-Specific Cart</h2>
 <p>Here&#39;s an example of a shopping cart that&#39;s specific to the current session:</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> signal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -173,7 +173,7 @@ title: SessionStorage Adapter
     <span class="token keyword">this</span><span class="token punctuation">.</span>total<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="clearing-session-data">Clearing Session Data</h2>
+</code></pre><h2 id="clearing-session-data-1">Clearing Session Data</h2>
 <p>Session data is automatically cleared when the browser tab closes, but you can also manually clear it:</p><pre><code class="language-typescript"><span class="token keyword">const</span> sessionData <span class="token operator">=</span> <span class="token function">storageSignal</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   key<span class="token operator">:</span> <span class="token string">'temp-data'</span><span class="token punctuation">,</span>
   initial<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -182,14 +182,14 @@ title: SessionStorage Adapter
 
 <span class="token comment">// Manually clear</span>
 sessionData<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="browser-compatibility-1">Browser Compatibility</h2>
+</code></pre><h2 id="browser-compatibility-3">Browser Compatibility</h2>
 <p>SessionStorage is supported in all modern browsers:</p><ul>
 <li>✅ Chrome, Edge, Firefox, Safari</li>
 <li>✅ Mobile browsers</li>
 <li>✅ Works in Private/Incognito mode (but cleared on exit)</li>
 <li>❌ Not available in Web Workers</li>
 </ul>
-<h2 id="best-practices-2">Best Practices</h2>
+<h2 id="best-practices-5">Best Practices</h2>
 <ol>
 <li><strong>Use for temporary data only</strong> - Don&#39;t rely on sessionStorage for critical data</li>
 <li><strong>Provide fallbacks</strong> - Always have a default initial value</li>
@@ -201,7 +201,7 @@ sessionData<span class="token punctuation">.</span><span class="token function">
   userSession<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">// ... other cleanup</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="next-steps-1">Next Steps</h2>
+</code></pre><h2 id="next-steps-3">Next Steps</h2>
 <ul>
 <li>Compare with <a href="/local-storage">LocalStorage</a> for persistent data</li>
 <li>Learn about <a href="/custom-adapters">Custom Adapters</a> for advanced storage</li>

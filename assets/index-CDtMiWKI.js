@@ -12,7 +12,7 @@ title: NgxPersist Documentation
 <span class="token keyword">export</span> <span class="token keyword">const</span> appConfig<span class="token operator">:</span> ApplicationConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
   providers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token function">provideNgxPersist</span><span class="token punctuation">(</span><span class="token punctuation">{</span> prefix<span class="token operator">:</span> <span class="token string">'myapp'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><h2 id="usage-8">Usage</h2>
+</code></pre><h2 id="usage-14">Usage</h2>
 <pre><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -45,7 +45,7 @@ title: NgxPersist Documentation
 <span class="token punctuation">}</span>
 </code></pre><h2 id="live-demo">Live Demo</h2>
 <p><app-demo-counter></app-demo-counter></p><h2 id="api">API</h2>
-<h3 id="storagesignaloptions-1"><code>storageSignal<T>(options)</code></h3>
+<h3 id="storagesignaloptions-2"><code>storageSignal<T>(options)</code></h3>
 <p>Creates a signal that syncs with storage.</p><h3 id="storagesignal-methods"><code>StorageSignal<T></code> methods</h3>
 <ul>
 <li><code>()</code>: Read value.</li>
@@ -54,11 +54,11 @@ title: NgxPersist Documentation
 <li><code>clear()</code>: Reset to initial and remove from storage.</li>
 <li><code>key</code>: The actual namespaced key used.</li>
 </ul>
-<h3 id="providengxpersistconfig-1"><code>provideNgxPersist(config)</code></h3>
+<h3 id="providengxpersistconfig-2"><code>provideNgxPersist(config)</code></h3>
 <p>Configures the library globally.</p><ul>
 <li><code>config.prefix</code>: Optional string to prefix all keys (e.g., <code>app:key</code>).</li>
 </ul>
-<h3 id="storagesignaloptions-2"><code>StorageSignalOptions<T></code></h3>
+<h3 id="storagesignaloptions-3"><code>StorageSignalOptions<T></code></h3>
 <ul>
 <li><code>key</code>: Unique key for storage.</li>
 <li><code>initial</code>: Default value.</li>

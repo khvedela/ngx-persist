@@ -2,7 +2,7 @@ const n=`---
 title: Basic Usage
 ---
 
-<h1 id="basic-usage-2">Basic Usage</h1>
+<h1 id="basic-usage-4">Basic Usage</h1>
 <p>This guide covers the fundamentals of using <code>storageSignal</code> to manage persistent state in your Angular application.</p><h2 id="creating-a-storage-signal">Creating a Storage Signal</h2>
 <p>The <code>storageSignal</code> function creates a writable signal that automatically syncs its value with storage (LocalStorage by default).</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>

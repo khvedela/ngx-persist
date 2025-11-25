@@ -2,8 +2,8 @@ const n=`---
 title: Encrypted Storage
 ---
 
-<h1 id="encrypted-storage">Encrypted Storage</h1>
-<p>Sometimes you need to store sensitive data on the client. You can create a &quot;Decorator&quot; adapter that encrypts data before passing it to the underlying storage (like LocalStorage) and decrypts it when retrieving.</p><h2 id="implementation-1">Implementation</h2>
+<h1 id="encrypted-storage-1">Encrypted Storage</h1>
+<p>Sometimes you need to store sensitive data on the client. You can create a &quot;Decorator&quot; adapter that encrypts data before passing it to the underlying storage (like LocalStorage) and decrypts it when retrieving.</p><h2 id="implementation-5">Implementation</h2>
 <p>This adapter wraps another <code>StorageAdapter</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> StorageAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> LocalStorageAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist/adapters'</span><span class="token punctuation">;</span> <span class="token comment">// Assuming this is available or use window.localStorage</span>
@@ -45,7 +45,7 @@ title: Encrypted Storage
     <span class="token keyword">this</span><span class="token punctuation">.</span>underlyingAdapter<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="usage-1">Usage</h2>
+</code></pre><h2 id="usage-7">Usage</h2>
 <pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> EncryptedAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./encrypted.adapter'</span><span class="token punctuation">;</span>
@@ -72,7 +72,7 @@ title: Encrypted Storage
     adapter<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>encryptedAdapter
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="decorator-pattern-with-dependency-injection">Decorator Pattern with Dependency Injection</h2>
+</code></pre><h2 id="decorator-pattern-with-dependency-injection-1">Decorator Pattern with Dependency Injection</h2>
 <p>To make this truly reusable for <em>any</em> adapter (e.g., Encrypted IndexedDB), you can use Angular&#39;s DI system.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> InjectionToken<span class="token punctuation">,</span> Injectable<span class="token punctuation">,</span> Inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> StorageAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
