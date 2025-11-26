@@ -31,7 +31,7 @@ title: Advanced Usage
   <span class="token operator">&lt;</span>p<span class="token operator">></span>Loading<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
 <span class="token punctuation">}</span>
 </code></pre><h2 id="linked-signals-2">Linked Signals</h2>
-<p>Angular 19 introduces <code>linkedSignal</code> for state that depends on another signal but can be overridden. <code>ngx-persist</code> supports this pattern with <code>storageLinkedSignal</code>.</p><p><a href="/usage/linked-signals"><strong>Read the full guide on Linked Signals</strong></a></p><h2 id="resource-api-integration-2">Resource API Integration</h2>
+<p>Angular 19 introduces <code>linkedSignal</code> for state that depends on another signal but can be overridden. <code>ngx-persist</code> supports this pattern with <code>storageLinkedSignal</code>.</p><p><a href="/usage/linked-signals"><strong>Read the full guide on Linked Signals</strong></a></p><h2 id="resource-api-integration-1">Resource API Integration</h2>
 <p>For offline-first data fetching, you can use <code>persistResource</code> to wrap an Angular <code>ResourceLoader</code>.</p><p><a href="/usage/resource-api"><strong>Read the full guide on Resource API</strong></a></p><h2 id="best-practices-7">Best Practices</h2>
 <h3 id="1-key-naming-1">1. Key Naming</h3>
 <p>Use consistent, descriptive keys. If you haven&#39;t set a global prefix, consider namespacing your keys manually (e.g., <code>'user:profile'</code>, <code>'ui:theme'</code>).</p><h3 id="2-state-size-1">2. State Size</h3>
