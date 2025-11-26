@@ -63,6 +63,7 @@ import packageJson from '../../../../ngx-persist/package.json';
               <a routerLink="/storage-adapters/session-storage" routerLinkActive="active" class="nav-item">SessionStorage</a>
               <a routerLink="/storage-adapters/indxed-db" routerLinkActive="active" class="nav-item">IndexedDB</a>
               <a routerLink="/storage-adapters/memory" routerLinkActive="active" class="nav-item">In-Memory</a>
+              <a routerLink="/storage-adapters/ttl-adapter" routerLinkActive="active" class="nav-item">TTL Adapter</a>
               <a routerLink="/storage-adapters/custom-adapters" routerLinkActive="active" class="nav-item">Custom Adapters</a>
             </div>
 
