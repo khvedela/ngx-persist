@@ -9,7 +9,7 @@ title: In-Memory Adapter
 <li><strong>Server-Side Rendering (SSR)</strong>: Used automatically as a fallback when <code>window</code> is undefined.</li>
 <li><strong>Temporary State</strong>: For state that should be global but cleared on refresh.</li>
 </ul>
-<h2 id="usage-13">Usage</h2>
+<h2 id="usage-14">Usage</h2>
 <p>Import <code>MemoryAdapter</code> from <code>ngx-persist</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal<span class="token punctuation">,</span> MemoryAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 

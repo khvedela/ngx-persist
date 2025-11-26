@@ -2,8 +2,8 @@ const n=`---
 title: Basic Usage
 ---
 
-<h1 id="basic-usage">Basic Usage</h1>
-<p>This guide covers the fundamentals of using <code>storageSignal</code> to manage persistent state in your Angular application.</p><h2 id="creating-a-storage-signal">Creating a Storage Signal</h2>
+<h1 id="basic-usage-5">Basic Usage</h1>
+<p>This guide covers the fundamentals of using <code>storageSignal</code> to manage persistent state in your Angular application.</p><h2 id="creating-a-storage-signal-1">Creating a Storage Signal</h2>
 <p>The <code>storageSignal</code> function creates a writable signal that automatically syncs its value with storage (LocalStorage by default).</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 
@@ -28,15 +28,15 @@ title: Basic Usage
     <span class="token keyword">this</span><span class="token punctuation">.</span>count<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>c <span class="token operator">=></span> c <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="reading-the-value">Reading the Value</h2>
+</code></pre><h2 id="reading-the-value-1">Reading the Value</h2>
 <p>Read the value just like any other Angular Signal: by calling it as a function.</p><pre><code class="language-typescript"><span class="token keyword">const</span> currentValue <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><p>In a template:</p><pre><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Current count: {{ count() }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-</code></pre><h2 id="updating-the-value">Updating the Value</h2>
-<p>You can set a new value directly or update it based on the previous value.</p><h3 id="set">Set</h3>
+</code></pre><h2 id="updating-the-value-1">Updating the Value</h2>
+<p>You can set a new value directly or update it based on the previous value.</p><h3 id="set-1">Set</h3>
 <pre><code class="language-typescript"><span class="token keyword">this</span><span class="token punctuation">.</span>count<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h3 id="update">Update</h3>
+</code></pre><h3 id="update-1">Update</h3>
 <pre><code class="language-typescript"><span class="token keyword">this</span><span class="token punctuation">.</span>count<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>current <span class="token operator">=></span> current <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h2 id="clearing-storage">Clearing Storage</h2>
+</code></pre><h2 id="clearing-storage-1">Clearing Storage</h2>
 <p>To reset the signal to its initial value and remove the item from storage, use the <code>clear()</code> method.</p><pre><code class="language-typescript"><span class="token keyword">this</span><span class="token punctuation">.</span>count<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// count() is now 0 (initial value)</span>
 <span class="token comment">// localStorage.getItem('counter') is null</span>

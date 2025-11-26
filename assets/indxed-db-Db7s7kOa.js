@@ -3,7 +3,7 @@ title: IndexedDB Adapter
 ---
 
 <h1 id="indexeddb-adapter-1">IndexedDB Adapter</h1>
-<p>The <code>IndexedDbAdapter</code> is a built-in asynchronous storage adapter for <strong>IndexedDB</strong>. It is ideal for storing large datasets, files, or complex objects that exceed the quota of LocalStorage.</p><h2 id="usage-12">Usage</h2>
+<p>The <code>IndexedDbAdapter</code> is a built-in asynchronous storage adapter for <strong>IndexedDB</strong>. It is ideal for storing large datasets, files, or complex objects that exceed the quota of LocalStorage.</p><h2 id="usage-13">Usage</h2>
 <p>Import <code>IndexedDbAdapter</code> from <code>ngx-persist</code> and pass it to <code>storageSignal</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal<span class="token punctuation">,</span> IndexedDbAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 

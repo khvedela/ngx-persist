@@ -45,7 +45,7 @@ title: Encrypted Storage
     <span class="token keyword">this</span><span class="token punctuation">.</span>underlyingAdapter<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="usage-9">Usage</h2>
+</code></pre><h2 id="usage-10">Usage</h2>
 <pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> EncryptedAdapter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./encrypted.adapter'</span><span class="token punctuation">;</span>
