@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
       <!-- Toolbar -->
       <header class="app-toolbar mat-elevation-z4">
         <div class="toolbar-row">
-          <button class="menu-button" aria-label="Menu">
+          <button class="menu-button" aria-label="Menu" (click)="toggleSidenav()">
             <span class="material-icons">menu</span>
           </button>
           <a routerLink="/" class="logo">
@@ -31,9 +31,14 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
       <!-- Sidenav Container -->
       <div class="sidenav-container">
+        <!-- Backdrop -->
+        @if (isSidenavOpen()) {
+          <div class="sidenav-backdrop" (click)="closeSidenav()"></div>
+        }
+
         <!-- Sidenav -->
-        <aside class="sidenav">
-          <nav class="sidenav-nav">
+        <aside class="sidenav" [class.open]="isSidenavOpen()">
+          <nav class="sidenav-nav" (click)="closeSidenav()">
             <div class="nav-group">
               <h3 class="nav-group-title">Getting Started</h3>
               <a routerLink="/getting-started/introduction" routerLinkActive="active" class="nav-item">Introduction</a>
@@ -203,11 +208,33 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
       border-right: 1px solid var(--divider-color);
       overflow-y: auto;
       flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .sidenav-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 25;
+      backdrop-filter: blur(2px);
     }
 
     @media (max-width: 768px) {
       .sidenav {
-        display: none; /* Hide on mobile for now */
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        bottom: 0;
+        z-index: 30;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 8px rgba(0,0,0,0.1);
+      }
+
+      .sidenav.open {
+        transform: translateX(0);
       }
     }
 
@@ -289,4 +316,14 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
     }
   `]
 })
-export class App { }
+export class App {
+  isSidenavOpen = signal(false);
+
+  toggleSidenav() {
+    this.isSidenavOpen.update(v => !v);
+  }
+
+  closeSidenav() {
+    this.isSidenavOpen.set(false);
+  }
+}
