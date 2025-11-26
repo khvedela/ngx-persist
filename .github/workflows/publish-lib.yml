@@ -21,6 +21,9 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Install Dependencies
         run: npm ci --legacy-peer-deps
 
@@ -28,5 +31,5 @@ jobs:
         run: npx ng build ngx-persist
 
       - name: Publish to NPM
-        run: npm publish --provenance
+        run: npm publish
         working-directory: dist/ngx-persist
