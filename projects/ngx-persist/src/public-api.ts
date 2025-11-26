@@ -7,3 +7,4 @@ export * from './lib/core/storage-adapter';
 export * from './lib/angular/ngx-persist.config';
 export * from './lib/adapters/memory-adapter';
 export * from './lib/adapters/indexed-db-adapter';
+export * from './lib/adapters/ttl-adapter';
