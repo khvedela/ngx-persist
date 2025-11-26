@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import packageJson from '../../../../ngx-persist/package.json';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
           </button>
           <a routerLink="/" class="logo">
             <span class="logo-text">NgxPersist</span>
-            <span class="version-badge">v0.0.1</span>
+            <span class="version-badge">v{{ version }}</span>
           </a>
           <span class="spacer"></span>
           <nav class="toolbar-nav">
@@ -318,6 +319,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class App {
   isSidenavOpen = signal(false);
+  version = packageJson.version;
 
   toggleSidenav() {
     this.isSidenavOpen.update(v => !v);

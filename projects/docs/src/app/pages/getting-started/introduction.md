@@ -7,7 +7,6 @@ title: Introduction
 
 
 <div class="flex gap-2 mb-8">
-  <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">v0.0.1</span>
   <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs font-medium">MIT License</span>
 </div>
 
