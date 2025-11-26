@@ -164,6 +164,12 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
       flex: 1;
     }
 
+    .toolbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .nav-icon-link {
       display: flex;
       align-items: center;

@@ -12,7 +12,7 @@ title: NgxPersist
   </p>
   
   <div class="flex gap-4">
-    <a href="/introduction" class="px-6 py-3 bg-blue-600 !text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+    <a href="/getting-started/introduction" class="px-6 py-3 bg-blue-600 !text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
       Get Started
     </a>
     <a href="https://github.com/khvedela/ngx-persist" target="_blank" class="px-6 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors border border-gray-200">
