@@ -3,8 +3,8 @@ title: NGRX SignalStore Integration
 ---
 
 <h1 id="ngrx-signalstore-integration-1">NGRX SignalStore Integration</h1>
-<p><code>ngx-persist</code> provides a seamless integration with <a href="https://ngrx.io/guide/signals">NGRX SignalStore</a>.</p><h2 id="installation-2">Installation</h2>
-<p>Ensure you have <code>@ngrx/signals</code> installed.</p><h2 id="usage-9">Usage</h2>
+<p><code>ngx-persist</code> provides a seamless integration with <a href="https://ngrx.io/guide/signals">NGRX SignalStore</a>.</p><h2 id="installation-3">Installation</h2>
+<p>Ensure you have <code>@ngrx/signals</code> installed.</p><h2 id="usage-8">Usage</h2>
 <p>Use the <code>withPersist</code> feature to automatically hydrate and persist your store&#39;s state.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> signalStore<span class="token punctuation">,</span> withState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@ngrx/signals'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> withPersist <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist/integrations'</span><span class="token punctuation">;</span>
 

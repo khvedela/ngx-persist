@@ -13,7 +13,7 @@ title: Resource API Integration
 <li>Fetch fresh data in the background.</li>
 <li>Update the UI (and cache) when fresh data arrives.</li>
 </ol>
-<h2 id="usage-16">Usage</h2>
+<h2 id="usage-15">Usage</h2>
 <p>Wrap your loader function with <code>persistResource</code>.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> resource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> persistResource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 

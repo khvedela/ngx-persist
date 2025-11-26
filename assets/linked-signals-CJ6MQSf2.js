@@ -10,7 +10,7 @@ title: Linked Signals
 <li>If you refresh the page, your edits should persist (persistence).</li>
 <li>If you switch to User B, the form should reset to User B&#39;s settings (linked state).</li>
 </ol>
-<p>Standard <code>storageSignal</code> persists forever. Standard <code>linkedSignal</code> doesn&#39;t persist. <code>storageLinkedSignal</code> does both.</p><h2 id="usage-15">Usage</h2>
+<p>Standard <code>storageSignal</code> persists forever. Standard <code>linkedSignal</code> doesn&#39;t persist. <code>storageLinkedSignal</code> does both.</p><h2 id="usage-14">Usage</h2>
 <pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> input <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageLinkedSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
 

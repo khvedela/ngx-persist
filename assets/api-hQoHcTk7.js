@@ -3,7 +3,7 @@ title: API Reference
 ---
 
 <h1 id="api-reference-1">API Reference</h1>
-<h2 id="storagesignaloptions-3"><code>storageSignal<T>(options)</code></h2>
+<h2 id="storagesignaloptions-1"><code>storageSignal<T>(options)</code></h2>
 <p>Creates a writable signal that persists its value.</p><p><strong>Options:</strong></p><table>
 <thead>
 <tr>
@@ -50,7 +50,7 @@ title: API Reference
 <li><code>clear()</code>: Resets to the initial value and removes the item from storage.</li>
 <li><code>key</code>: The fully qualified key used (including prefix).</li>
 </ul>
-<h2 id="providengxpersistconfig-2"><code>provideNgxPersist(config)</code></h2>
+<h2 id="providengxpersistconfig-1"><code>provideNgxPersist(config)</code></h2>
 <p>Configures the library globally.</p><p><strong>Config:</strong></p><table>
 <thead>
 <tr>
