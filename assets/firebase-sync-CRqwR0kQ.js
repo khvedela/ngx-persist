@@ -2,8 +2,8 @@ const n=`---
 title: Firebase Sync Adapter
 ---
 
-<h1 id="firebase-sync-adapter-1">Firebase Sync Adapter</h1>
-<p>This example demonstrates how to use Google Firebase (Firestore) as a storage backend. This enables real-time synchronization across all user devices.</p><h2 id="implementation-6">Implementation</h2>
+<h1 id="firebase-sync-adapter">Firebase Sync Adapter</h1>
+<p>This example demonstrates how to use Google Firebase (Firestore) as a storage backend. This enables real-time synchronization across all user devices.</p><h2 id="implementation-2">Implementation</h2>
 <p>We will use <code>@angular/fire</code> to interact with Firestore. We&#39;ll implement the <code>subscribe</code> method to listen for real-time changes from the database.</p><pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable<span class="token punctuation">,</span> inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Firestore<span class="token punctuation">,</span> doc<span class="token punctuation">,</span> getDoc<span class="token punctuation">,</span> setDoc<span class="token punctuation">,</span> deleteDoc<span class="token punctuation">,</span> onSnapshot<span class="token punctuation">,</span> collection <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/fire/firestore'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Auth <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/fire/auth'</span><span class="token punctuation">;</span>
@@ -74,7 +74,7 @@ title: Firebase Sync Adapter
     <span class="token keyword">return</span> unsubscribe<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><h2 id="usage-10">Usage</h2>
+</code></pre><h2 id="usage-7">Usage</h2>
 <pre><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> inject<span class="token punctuation">,</span> effect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Auth<span class="token punctuation">,</span> user <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/fire/auth'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> storageSignal <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ngx-persist'</span><span class="token punctuation">;</span>
